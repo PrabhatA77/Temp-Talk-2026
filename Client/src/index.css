@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Hanken Grotesk", sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Define custom drop shadows using pure CSS variables */
+  --drop-shadow-glow-black: 0 2px 5px rgba(0, 0, 0, 0.4);
+  --drop-shadow-glow-white: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.25s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.15s ease-out;
+}
+
+@layer components {
+  .glass-panel {
+    /* Light mode defaults */
+    @apply bg-white/1 backdrop-blur-md border border-white/1 shadow-xl;
+  }
+  
+  /* When the .dark class is active on the HTML tag, swap these properties */
+  .dark .glass-panel {
+    @apply bg-black/1 border-white/1 shadow-2xl;
+  }
+}
+
+
