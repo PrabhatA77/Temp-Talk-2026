@@ -18,7 +18,14 @@
 
 <br/>
 
-Screenshots/Screenshot 2026-07-17 103856.png Screenshots/Screenshot 2026-07-17 103931.png Screenshots/Screenshot 2026-07-17 103958.png Screenshots/Screenshot 2026-07-17 104009.png Screenshots/Screenshot 2026-07-17 104026.png Screenshots/Screenshot 2026-07-17 104148.png Screenshots/Screenshot 2026-07-17 104202.png Screenshots/Screenshot 2026-07-17 104311.png
+![Screenshot 1](Screenshots/Screenshot%202026-07-17%20103856.png)
+![Screenshot 2](Screenshots/Screenshot%202026-07-17%20103931.png)
+![Screenshot 3](Screenshots/Screenshot%202026-07-17%20103958.png)
+![Screenshot 4](Screenshots/Screenshot%202026-07-17%20104009.png)
+![Screenshot 5](Screenshots/Screenshot%202026-07-17%20104026.png)
+![Screenshot 6](Screenshots/Screenshot%202026-07-17%20104148.png)
+![Screenshot 7](Screenshots/Screenshot%202026-07-17%20104202.png)
+![Screenshot 8](Screenshots/Screenshot%202026-07-17%20104311.png)
 
 <!--
   📸 SCREENSHOTS / DEMO GIF
