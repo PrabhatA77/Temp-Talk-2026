@@ -32,7 +32,7 @@
   <img src="Client/src/assets/Screenshots/Screenshot 2026-07-17 104202.png" width="48%" />
   <img src="Client/src/assets/Screenshots/Screenshot 2026-07-17 104311.png" width="48%" />
 </p>
-Client/src/assets/Screenshots/RELAYProject.gif
+
 <!--
   📸 SCREENSHOTS / DEMO GIF
   Drop your images/GIFs in a `docs/` or `assets/` folder in the repo root,
