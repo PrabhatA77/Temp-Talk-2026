@@ -19,6 +19,10 @@
 <br/>
 
 <p align="center">
+  <img src="Screenshots/RELAYProject.gif" width="80%" alt="Relay Chat Demo" />
+</p>
+
+<p align="center">
   <img src="Screenshots/Screenshot 2026-07-17 103856.png" width="48%" />
   <img src="Screenshots/Screenshot 2026-07-17 103931.png" width="48%" />
   <img src="Screenshots/Screenshot 2026-07-17 103958.png" width="48%" />
