@@ -10,7 +10,7 @@ const InvitePanel = ({link}) => {
         Invite People
       </p>
 
-      <RoomCode/>
+      <RoomCode link={link}/>
       <CopyLink link={link}/>
       <ShareButton link={link}/>
       <QRCode link={link}/>

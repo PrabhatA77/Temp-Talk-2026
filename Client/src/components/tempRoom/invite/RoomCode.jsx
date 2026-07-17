@@ -3,14 +3,17 @@ import {Copy,Check} from "lucide-react"
 import { useState } from "react";
 
 
-const RoomCode = () => {
+const RoomCode = ({link}) => {
 
     const {activeRoom} = usePersistentRoomStore();
     const [copied,setCopied] = useState(false);
-        //const link =  `${window.location.origin}/temp/join/${roomId}`;
     
+    const roomCodeForTempRoom = link.split("/").pop();
+    
+    const code = (activeRoom?.roomCode !== undefined ? activeRoom?.roomCode : roomCodeForTempRoom);
+
         const handleCopy = async ()=>{
-            await navigator.clipboard.writeText(activeRoom?.roomCode);
+            await navigator.clipboard.writeText(code);
             setCopied(true);
             setTimeout(()=>setCopied(false),2000);
         };
@@ -24,7 +27,7 @@ const RoomCode = () => {
         {/* link box + copy button */}
         <div className="flex items-center gap-2 rounded-lg px-3 py-2 backdrop-blur-sm bg-white/1 dark:bg-black/1 cursor-pointer">
             <span className="text-xs dark:text-white truncate flex-1">
-                {activeRoom?.roomCode}
+                {code}
             </span>
             <button
                 onClick={handleCopy}
@@ -39,7 +42,7 @@ const RoomCode = () => {
         </div>
 
         {copied && (
-            <p className="text-[10px] text-green-500">Link copied!</p>
+            <p className="text-[10px] text-green-500">Code copied!</p>
         )}
     </div>
   )
