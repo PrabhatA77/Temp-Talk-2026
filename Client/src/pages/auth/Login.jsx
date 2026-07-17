@@ -165,7 +165,7 @@ const Login = () => {
                 setMessage("Google Sign-In failed. Please try again.")
               }
               theme="outline"
-              width="100%"
+              width="384"
             />
           </div>
 

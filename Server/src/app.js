@@ -8,8 +8,10 @@ import persistentRoomRoutes from "./Routes/persistentRoomRoutes.js";
 
 const app = express();
 
+const FRONTEND_URI = (process.env.FRONTEND_URI || "").replace(/\/$/, "");
+
 app.use(cors({
-    origin:process.env.FRONTEND_URI,
+    origin:FRONTEND_URI,
     credentials:true,
 }));
 
