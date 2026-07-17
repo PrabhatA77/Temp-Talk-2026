@@ -18,6 +18,9 @@
 
 <br/>
 
+![alt text](<Screenshot 2026-07-17 103856.png>)
+![alt text](<Screenshot 2026-07-17 103931.png>) ![alt text](<Screenshot 2026-07-17 103958.png>) ![alt text](<Screenshot 2026-07-17 104009.png>) ![alt text](<Screenshot 2026-07-17 104026.png>) ![alt text](<Screenshot 2026-07-17 104148.png>) ![alt text](<Screenshot 2026-07-17 104202.png>) ![alt text](<Screenshot 2026-07-17 104311.png>)
+
 <!--
   📸 SCREENSHOTS / DEMO GIF
   Drop your images/GIFs in a `docs/` or `assets/` folder in the repo root,
@@ -44,12 +47,14 @@ Rather than bolting ephemeral chat onto a persistent data model (or vice versa),
 ## ✨ Features
 
 ### 🔐 Authentication
+
 - Email/password signup with OTP email verification (via [Resend](https://resend.com))
 - Forgot / reset password flow, also OTP-gated
 - **Google Sign-In** (verified server-side via `google-auth-library`), converging on the same signed, httpOnly JWT session as password login
 - Profile management: change username, change password, upload/change avatar, delete account (with automatic cleanup — rooms where you're the last member get deleted, rooms where you're the sole admin auto-promote another member)
 
 ### ⚡ Temporary Rooms
+
 - No account needed — just pick a username
 - Configurable duration with a live countdown, extendable once by the creator
 - Username-uniqueness check per room before joining
@@ -57,6 +62,7 @@ Rather than bolting ephemeral chat onto a persistent data model (or vice versa),
 - Entire room (messages + participants) wiped permanently on expiry
 
 ### 🏠 Persistent Rooms
+
 - Joinable via a short, unique 6-character room code
 - Full message history stored in MongoDB
 - **Admin system**: creator is auto-admin; admins can promote other members, kick (removable, can rejoin), or block (removed + permanently barred) disruptive users — with an in-memory blocklist check enforced at both the REST and WebSocket connection layer
@@ -68,10 +74,12 @@ Rather than bolting ephemeral chat onto a persistent data model (or vice versa),
 - Emoji picker for message composition
 
 ### 🤖 AI-Powered Features (Google Gemini)
+
 - **Room Mood Indicator** — periodically analyzes recent conversation (batched every 10 messages or 45 seconds, whichever first) to surface the room's ambient emotional tone. Never analyzes individuals, filters out gibberish/spam before inference, and preserves the last known mood rather than flickering to "Neutral" during noisy stretches.
 - **AI-Curated Testimonials** — users can submit rated feedback; Gemini scores sentiment and quality in the background (never during page load), and only feedback that clears quality/consent thresholds is surfaced as a rotating testimonial on the Login/Register pages.
 
 ### 🎨 Design & Interaction
+
 - Full dark/light theme support throughout
 - Animated, interactive background canvas
 - Page transitions and staggered UI animations via Framer Motion
@@ -81,17 +89,17 @@ Rather than bolting ephemeral chat onto a persistent data model (or vice versa),
 
 ## 🧱 Tech Stack
 
-| Layer | Technology |
-|---|---|
-| **Frontend** | React 19, Vite, Tailwind CSS, Zustand, React Router, Framer Motion |
-| **Backend** | Node.js, Express 5 |
-| **Database** | MongoDB + Mongoose |
-| **Real-Time** | Native WebSockets (`ws`) |
-| **Auth** | JWT (httpOnly cookies), bcrypt, Google OAuth 2.0 |
-| **Media Storage** | Cloudinary (buffered streaming uploads) |
-| **Email** | Resend |
-| **AI** | Google Gemini (`@google/genai`) |
-| **Hosting** | Render (backend), Vercel (frontend) |
+| Layer             | Technology                                                         |
+| ----------------- | ------------------------------------------------------------------ |
+| **Frontend**      | React 19, Vite, Tailwind CSS, Zustand, React Router, Framer Motion |
+| **Backend**       | Node.js, Express 5                                                 |
+| **Database**      | MongoDB + Mongoose                                                 |
+| **Real-Time**     | Native WebSockets (`ws`)                                           |
+| **Auth**          | JWT (httpOnly cookies), bcrypt, Google OAuth 2.0                   |
+| **Media Storage** | Cloudinary (buffered streaming uploads)                            |
+| **Email**         | Resend                                                             |
+| **AI**            | Google Gemini (`@google/genai`)                                    |
+| **Hosting**       | Render (backend), Vercel (frontend)                                |
 
 ---
 
@@ -125,23 +133,27 @@ Temp-Talk-2026/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 20+ LTS
 - A MongoDB instance (local or [Atlas](https://www.mongodb.com/cloud/atlas))
 - API keys: [Cloudinary](https://cloudinary.com), [Resend](https://resend.com), [Google Cloud Console](https://console.cloud.google.com) (OAuth Client), [Google AI Studio](https://aistudio.google.com) (Gemini)
 
 ### 1. Clone the repo
+
 ```bash
 git clone https://github.com/PrabhatA77/Temp-Talk-2026.git
 cd Temp-Talk-2026
 ```
 
 ### 2. Backend setup
+
 ```bash
 cd Server
 npm install
 ```
 
 Create a `.env` file in `Server/`:
+
 ```env
 PORT=3000
 MONGODB_URI=your_mongodb_connection_string
@@ -163,17 +175,20 @@ NODE_ENV=development
 ```
 
 Run the backend:
+
 ```bash
 npm start
 ```
 
 ### 3. Frontend setup
+
 ```bash
 cd ../Client
 npm install
 ```
 
 Create a `.env` file in `Client/`:
+
 ```env
 VITE_API_URL=http://localhost:3000/api
 VITE_WS_URL=ws://localhost:3000/ws
@@ -181,6 +196,7 @@ VITE_GOOGLE_CLIENT_ID=your_google_oauth_client_id
 ```
 
 Run the frontend:
+
 ```bash
 npm run dev
 ```
@@ -194,32 +210,32 @@ The app should now be running at `http://localhost:5173`.
 <details>
 <summary><strong>Server (.env)</strong></summary>
 
-| Variable | Description |
-|---|---|
-| `PORT` | Port the Express server listens on |
-| `MONGODB_URI` | MongoDB connection string |
-| `JWT_SECRET` | Secret used to sign session JWTs |
-| `RESEND_API_KEY` | API key for Resend (transactional email) |
-| `FROM_DOMAIN` | Verified sending domain/address for Resend |
-| `DEVELOPER_EMAIL` | Where private "Send Feedback" submissions are delivered |
-| `CLOUDINARY_CLOUD_NAME` | Cloudinary account identifier |
-| `CLOUDINARY_API_KEY` | Cloudinary API key |
-| `CLOUDINARY_API_SECRET` | Cloudinary API secret |
-| `GOOGLE_CLIENT_ID` | OAuth Client ID (must match frontend's) |
-| `GEMINI_API_KEY` | Google Gemini API key |
-| `FRONTEND_URI` | Deployed frontend origin, used for CORS (no trailing slash!) |
-| `NODE_ENV` | `development` or `production` — affects cookie `secure`/`sameSite` behavior |
+| Variable                | Description                                                                 |
+| ----------------------- | --------------------------------------------------------------------------- |
+| `PORT`                  | Port the Express server listens on                                          |
+| `MONGODB_URI`           | MongoDB connection string                                                   |
+| `JWT_SECRET`            | Secret used to sign session JWTs                                            |
+| `RESEND_API_KEY`        | API key for Resend (transactional email)                                    |
+| `FROM_DOMAIN`           | Verified sending domain/address for Resend                                  |
+| `DEVELOPER_EMAIL`       | Where private "Send Feedback" submissions are delivered                     |
+| `CLOUDINARY_CLOUD_NAME` | Cloudinary account identifier                                               |
+| `CLOUDINARY_API_KEY`    | Cloudinary API key                                                          |
+| `CLOUDINARY_API_SECRET` | Cloudinary API secret                                                       |
+| `GOOGLE_CLIENT_ID`      | OAuth Client ID (must match frontend's)                                     |
+| `GEMINI_API_KEY`        | Google Gemini API key                                                       |
+| `FRONTEND_URI`          | Deployed frontend origin, used for CORS (no trailing slash!)                |
+| `NODE_ENV`              | `development` or `production` — affects cookie `secure`/`sameSite` behavior |
 
 </details>
 
 <details>
 <summary><strong>Client (.env)</strong></summary>
 
-| Variable | Description |
-|---|---|
-| `VITE_API_URL` | Base URL for REST API calls |
-| `VITE_WS_URL` | Base URL for WebSocket connections (`ws://` locally, `wss://` in production) |
-| `VITE_GOOGLE_CLIENT_ID` | Same OAuth Client ID as the backend |
+| Variable                | Description                                                                  |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| `VITE_API_URL`          | Base URL for REST API calls                                                  |
+| `VITE_WS_URL`           | Base URL for WebSocket connections (`ws://` locally, `wss://` in production) |
+| `VITE_GOOGLE_CLIENT_ID` | Same OAuth Client ID as the backend                                          |
 
 </details>
 
