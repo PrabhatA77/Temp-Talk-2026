@@ -18,8 +18,7 @@
 
 <br/>
 
-![alt text](<Screenshot 2026-07-17 103856.png>)
-![alt text](<Screenshot 2026-07-17 103931.png>) ![alt text](<Screenshot 2026-07-17 103958.png>) ![alt text](<Screenshot 2026-07-17 104009.png>) ![alt text](<Screenshot 2026-07-17 104026.png>) ![alt text](<Screenshot 2026-07-17 104148.png>) ![alt text](<Screenshot 2026-07-17 104202.png>) ![alt text](<Screenshot 2026-07-17 104311.png>)
+Screenshots/Screenshot 2026-07-17 103856.png Screenshots/Screenshot 2026-07-17 103931.png Screenshots/Screenshot 2026-07-17 103958.png Screenshots/Screenshot 2026-07-17 104009.png Screenshots/Screenshot 2026-07-17 104026.png Screenshots/Screenshot 2026-07-17 104148.png Screenshots/Screenshot 2026-07-17 104202.png Screenshots/Screenshot 2026-07-17 104311.png
 
 <!--
   📸 SCREENSHOTS / DEMO GIF
