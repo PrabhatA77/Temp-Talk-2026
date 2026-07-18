@@ -56,7 +56,7 @@ const LandingMiddle = () => {
         >
           <div className="text-xl font-bold dark:text-white">
             <RotatingText
-              className="text-5xl md:text-6xl font-black"
+              className="text-3xl sm:text-5xl md:text-6xl font-black"
               prefix="Conversations"
               words={[
                 "Reimagined..",
